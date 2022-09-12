@@ -20,18 +20,19 @@ public class AnalyticsApplication {
 		String target = "localhost:8980";
 		String targetK8s = "192.168.49.2:30980";
 		String targetInnnerK8s = "172.17.0.4:8980";
+		String targetOkteto ="ec33nw-datahandler-service-bordaso.cloud.okteto.net:8980";
 
 		if (args.length > 0) {
 			if ("--help".equals(args[0])) {
-				System.err.println("Usage: [targetInnnerK8s]");
+				System.err.println("Usage: [targetOkteto]");
 				System.err.println("");
-				System.err.println("  target  The server to connect to. Defaults to " + targetInnnerK8s);
+				System.err.println("  target  The server to connect to. Defaults to " + targetOkteto);
 				System.exit(1);
 			}
 			targetInnnerK8s = args[0];
 		}
 
-		ManagedChannel channel = ManagedChannelBuilder.forTarget(targetInnnerK8s).usePlaintext().build();
+		ManagedChannel channel = ManagedChannelBuilder.forTarget(target).usePlaintext().build();
 		client = new GrpcClientStub(channel);
 
 	/*	try {
