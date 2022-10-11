@@ -29,7 +29,7 @@ kind: Service
 metadata:
   name: ec33nw-analytics-service
   annotations:
-    dev.okteto.com/auto-ingress: "true"
+    dev.okteto.com/generate-host: "true"
 spec:
   selector:
     app: ec33nw-analytics
