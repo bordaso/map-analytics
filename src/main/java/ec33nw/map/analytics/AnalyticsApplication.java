@@ -6,9 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import ec33nw.map.analytics.impl.GrpcClientStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@EnableSwagger2
 @SpringBootApplication
 public class AnalyticsApplication {
 
