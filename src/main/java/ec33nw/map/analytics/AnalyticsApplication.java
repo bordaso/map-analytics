@@ -33,6 +33,8 @@ public class AnalyticsApplication {
 			targetInnnerK8s = args[0];
 		}
 
+		System.out.println("updated_______ " + 1);
+		
 		ManagedChannel channel = ManagedChannelBuilder.forTarget(targetOkteto2).usePlaintext().build();
 		client = new GrpcClientStub(channel);
 
