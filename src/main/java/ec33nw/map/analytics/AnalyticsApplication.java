@@ -16,7 +16,7 @@ public class AnalyticsApplication {
 		SpringApplication.run(AnalyticsApplication.class, args);
 		//grpc server ports
 		String target = "0.0.0.0:8980";
-		String target2 = "172.17.0.2:8980";
+		String target2 = "ec33nw-datahandler-service:8980";
 		String targetK8s = "192.168.49.2:30980";
 		String targetInnnerK8s = "172.17.0.4:8980";
 		String targetOkteto ="35.225.69.73:50051";
