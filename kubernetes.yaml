@@ -19,7 +19,6 @@ spec:
         image: zedas/ec33nw-map-analytics
         ports:
         - containerPort: 8081
-        - containerPort: 8981
         imagePullPolicy: Always
 
 ---
@@ -28,17 +27,14 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ec33nw-analytics-service
-  annotations:
-    dev.okteto.com/generate-host: "true"
 spec:
   selector:
     app: ec33nw-analytics
+  type: LoadBalancer
   ports:
     - port: 8081
       name: resttestport
       protocol: TCP
       targetPort: 8081
-    - port: 8981
-      name: grcpport
-      protocol: TCP
-      targetPort: 8981
+      nodePort: 30081
+      

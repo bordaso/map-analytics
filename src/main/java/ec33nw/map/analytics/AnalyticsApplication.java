@@ -15,7 +15,8 @@ public class AnalyticsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AnalyticsApplication.class, args);
 		//grpc server ports
-		String target = "localhost:8980";
+		String target = "0.0.0.0:8980";
+		String target2 = "172.17.0.2:8980";
 		String targetK8s = "192.168.49.2:30980";
 		String targetInnnerK8s = "172.17.0.4:8980";
 		String targetOkteto ="35.225.69.73:50051";
@@ -25,15 +26,15 @@ public class AnalyticsApplication {
 			if ("--help".equals(args[0])) {
 				System.err.println("Usage: [targetOkteto]");
 				System.err.println("");
-				System.err.println("  target  The server to connect to. Defaults to " + targetOkteto2);
+				System.err.println("  target  The server to connect to. Defaults to " + target2);
 				System.exit(1);
 			}
 			targetInnnerK8s = args[0];
 		}
 
-		System.out.println("updated_______ " + 1);
+		System.out.println(">>>>updated_______ 5");
 		
-		ManagedChannel channel = ManagedChannelBuilder.forTarget(targetOkteto2).usePlaintext().build();
+		ManagedChannel channel = ManagedChannelBuilder.forTarget(target2).usePlaintext().build();
 		client = new GrpcClientStub(channel);
 
 	/*	try {
