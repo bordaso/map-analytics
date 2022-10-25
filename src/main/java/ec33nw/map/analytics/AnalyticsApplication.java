@@ -14,34 +14,20 @@ public class AnalyticsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AnalyticsApplication.class, args);
-		//grpc server ports
-		String target = "0.0.0.0:8980";
-		String target2 = "ec33nw-datahandler-service:8980";
-		String targetK8s = "192.168.49.2:30980";
-		String targetInnnerK8s = "172.17.0.4:8980";
-		String targetOkteto ="35.225.69.73:50051";
-		String targetOkteto2 ="ingress-bordaso.cloud.okteto.net:50051";
+		String target = "ec33nw-datahandler-service:8980";
 
 		if (args.length > 0) {
 			if ("--help".equals(args[0])) {
 				System.err.println("Usage: [targetOkteto]");
 				System.err.println("");
-				System.err.println("  target  The server to connect to. Defaults to " + target2);
+				System.err.println("  target  The server to connect to. Defaults to " + target);
 				System.exit(1);
 			}
-			targetInnnerK8s = args[0];
 		}
-
-		System.out.println(">>>>updated_______ 5");
 		
-		ManagedChannel channel = ManagedChannelBuilder.forTarget(target2).usePlaintext().build();
+		ManagedChannel channel = ManagedChannelBuilder.forTarget(target).usePlaintext().build();
 		client = new GrpcClientStub(channel);
 
-	/*	try {
-			channel.shutdownNow().awaitTermination(5, TimeUnit.SECONDS);
-		} catch (InterruptedException e) {
-			System.err.println(e.getClass().toString() + "______" + e.getMessage());
-		}*/
 	}
 
 }
